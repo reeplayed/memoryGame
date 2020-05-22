@@ -23,7 +23,8 @@ const CardsWrapper = styled.div`
     width: 500px;
   }
   @media(max-width: 600px){
-    width: 310px;
+    width: 315px;
+    grid-gap: 5px;
   }
 `;
 const InfoWrapper = styled.div`
@@ -37,6 +38,10 @@ const Typography = styled.div`
   text-align: center;
   font-family: 'Trade Winds';
   cursor: pointer;
+
+  @media(max-width: 600px){
+    font-size: 1.2rem;
+  }
 `;
 const Backdrop = styled.div`
   position: absolute;
@@ -56,6 +61,10 @@ const ModalContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 600px) {
+    width: 300px
+  }
 `;
 const TextField = styled.input`
   border: 2px solid #76d7c4;

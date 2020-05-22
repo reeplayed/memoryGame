@@ -8,7 +8,7 @@ const CardContent = styled.div`
     height: 90px;
   }
   @media(max-width: 600px){
-    height: 70px;
+    height: 60px;
   }
 `;
 
@@ -35,8 +35,6 @@ const CardFaceBack = styled(CardFace)`
   background: linear-gradient(45deg, rgba(229, 152, 102, 0), rgba(229, 152, 102, ${({
     guess,
   }) => (guess ? '0.7' : '0')})), url(${({ img }) => img});
-  // background-image: url(${({ img }) => img});
-  // opacity: ${({ guess }) => (guess ? '0.7' : '1')};
   transform: rotateY(${({ side }) => (!side ? '180deg' : '360deg')});
   transition: all 0.5s;
   background-size: cover;
