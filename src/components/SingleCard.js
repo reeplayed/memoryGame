@@ -4,10 +4,10 @@ import styled from 'styled-components';
 const CardContent = styled.div`
   height: 120px;
   position: relative;
-  @media(max-width: 1000px){
+  @media (max-width: 1000px) {
     height: 90px;
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     height: 60px;
   }
 `;
@@ -32,9 +32,12 @@ const CardFaceFront = styled(CardFace)`
   background: #566573;
 `;
 const CardFaceBack = styled(CardFace)`
-  background: linear-gradient(45deg, rgba(229, 152, 102, 0), rgba(229, 152, 102, ${({
-    guess,
-  }) => (guess ? '0.7' : '0')})), url(${({ img }) => img});
+  background: linear-gradient(
+      45deg,
+      rgba(229, 152, 102, 0),
+      rgba(229, 152, 102, ${({ guess }) => (guess ? '0.7' : '0')})
+    ),
+    url(${({ img }) => img});
   transform: rotateY(${({ side }) => (!side ? '180deg' : '360deg')});
   transition: all 0.5s;
   background-size: cover;

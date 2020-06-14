@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 const Content = styled.main`
   margin: 0 10px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -19,10 +19,10 @@ const CardsWrapper = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
   margin: 10px auto;
-  @media(max-width: 1000px){
+  @media (max-width: 1000px) {
     width: 500px;
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     width: 315px;
     grid-gap: 5px;
   }
@@ -39,7 +39,7 @@ const Typography = styled.div`
   font-family: 'Trade Winds';
   cursor: pointer;
 
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     font-size: 1.2rem;
   }
 `;
@@ -57,13 +57,13 @@ const ModalContent = styled.div`
   margin: 120px auto;
   background: #566573;
   padding: 5px 15px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
   @media (max-width: 600px) {
-    width: 300px
+    width: 300px;
   }
 `;
 const TextField = styled.input`
@@ -138,10 +138,9 @@ const MainPage = () => {
     setCountdown(false);
     setCounter(0);
     setCurrentGuess('retry');
-    setTimeout(()=>{
+    setTimeout(() => {
       setItems(_.shuffle(index));
-    }, 300)
-    
+    }, 300);
   };
 
   const closeModal = () => {
@@ -181,9 +180,9 @@ const MainPage = () => {
     } else if (currentGuess === index) {
       setGuessItems([...guessItems, index]);
       setCurrentGuess(false);
-      console.log(guessItems.length)
-      if(guessItems.length===9){
-        setCountdown(false)
+      console.log(guessItems.length);
+      if (guessItems.length === 9) {
+        setCountdown(false);
         setWinModalOpen(true);
       }
     } else if (currentGuess !== index) {
@@ -220,32 +219,33 @@ const MainPage = () => {
       </ModalContent>
     </Backdrop>
   );
-  
+
   const WinModal = () => (
     <Backdrop>
       <ModalContent>
-        <Typography>
-          Your time: {counter}s
-        </Typography>
-        <Button onClick={() => {
+        <Typography>Your time: {counter}s</Typography>
+        <Button
+          onClick={() => {
             setWinModalOpen(false);
             retryHandler();
-          }}>Retry</Button>
+          }}
+        >
+          Retry
+        </Button>
       </ModalContent>
     </Backdrop>
-  )
+  );
   return (
     <>
-      {winModalOpen && <WinModal/>}
+      {winModalOpen && <WinModal />}
       {modalOpen && Modal}
       <InfoWrapper>
-          <Typography onClick={() => setModalOpen(true)}>
-            Welcome {localStorage.name}
-          </Typography>
-          <Typography>Time: {counter}s</Typography>
-        </InfoWrapper>
+        <Typography onClick={() => setModalOpen(true)}>
+          Welcome {localStorage.name}
+        </Typography>
+        <Typography>Time: {counter}s</Typography>
+      </InfoWrapper>
       <Content>
-        
         <CardsWrapper>
           {items.map(index => (
             <SingleCard
